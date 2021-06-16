@@ -149,17 +149,21 @@ void displayResults(stats crntTrial, int numEquations, string **equationInfo)
          << endl << "  " << " Number of Correct Answers:  " << crntTrial.answers_correct << " of " << numEquations
          << endl << "  " << " Percentage of Correct answers:  % " << crntTrial.percent_corr;
 
-    for (int crnt = 0; crnt < numEquations; crnt++) 
-    {   if (equationInfo[crnt][a.ACCURACY] == "I" || equationInfo[crnt][a.ACCURACY] == "P" )
-        {   cout << endl
-                 << endl << "  " << equationInfo[crnt][a.EQUATION] << equationInfo[crnt][a.SOLUTION];
-            (equationInfo[crnt][a.ACCURACY] == "I") 
-              ? cout << endl << "  " << "You answered:  " << equationInfo[crnt][a.STUD_ANS]
-              : cout << endl << "  " << "You skipped this question.";
-            cin.get();
+    // DISPLAY - correct mistakes / skips
+    if (crntTrial.percent_incor != 0)
+    {   cout << endl 
+             << endl << "  " << "MISTAKES: ";
+        for (int crnt = 0; crnt < numEquations; crnt++) 
+        {   if (equationInfo[crnt][a.ACCURACY] == "I" || equationInfo[crnt][a.ACCURACY] == "P" )
+            {   cout << endl
+                    << endl << "  " << equationInfo[crnt][a.EQUATION] << equationInfo[crnt][a.SOLUTION];
+                (equationInfo[crnt][a.ACCURACY] == "I") 
+                ? cout << endl << "  " << "You answered:  " << equationInfo[crnt][a.STUD_ANS]
+                : cout << endl << "  " << "You skipped this question.";
+                cin.get();
+            }
         }
     }
-
     cout << endl << endl << "  Press [ENTER] to continue." << endl;
     cin.get();
 }
