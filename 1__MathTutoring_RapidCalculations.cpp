@@ -128,19 +128,19 @@ int main()
 void displayResults(stats crntTrial, int numEquations, string **equationInfo)
 {   arrElems a;
     // PROCESSING - establish other values
-    crntTrial.percent_corr = 1.00 * (100 * crntTrial.answers_correct / numEquations); 
-    crntTrial.percent_incor = 1.00 * (100 * crntTrial.answers_incorr / numEquations); 
+    crntTrial.percent_corr = (1.00 * 100 * crntTrial.answers_correct / numEquations); 
+    crntTrial.percent_incor = (1.00 * 100 * crntTrial.answers_incorr / numEquations); 
     // INPUT - calculate time
     cout << endl << endl << "  "<< "What was your time?";
     crntTrial.time = getInput_timetaken();
     // PROCESSING - establish time
-    crntTrial.seconds_perQuest = 1.00 * (crntTrial.time / numEquations);
+    crntTrial.seconds_perQuest = 1.00 * crntTrial.time / numEquations;
 
     // DISPLAY - show results
     cout << endl << endl << "  " << "RESULTS"; 
     if (crntTrial.time != -2)
         cout << setprecision(2) << fixed << showpoint
-             << endl << "  " << "  - Seconds per question: " << crntTrial.seconds_perQuest
+             << endl << "  " << "  - Seconds per question: " << crntTrial.seconds_perQuest << " seconds"
              ;
     cout << endl
          << endl << "  " << " Number of Incorrect Answers: " << crntTrial.answers_incorr << " of " << numEquations
@@ -151,8 +151,8 @@ void displayResults(stats crntTrial, int numEquations, string **equationInfo)
 
     // DISPLAY - correct mistakes / skips
     if (crntTrial.percent_incor != 0)
-    {   cout << endl 
-             << endl << "  " << "MISTAKES: ";
+    {   cin.get();
+        cout << endl << endl << "  " << "MISTAKES: ";
         for (int crnt = 0; crnt < numEquations; crnt++) 
         {   if (equationInfo[crnt][a.ACCURACY] == "I" || equationInfo[crnt][a.ACCURACY] == "P" )
             {   cout << endl
@@ -434,8 +434,10 @@ void showMenu(int *inpReturn, int *size, bool *endProg)
         }
         else if (fetch[0] == '3')
         {   *endProg = true;
+            *inpReturn = '3';            
             cout << endl << "  " << "Program ended -- thank you for using this program!"
                  << endl;
+            return;
         }
         else    *inpReturn = atoi(fetch); 
         
