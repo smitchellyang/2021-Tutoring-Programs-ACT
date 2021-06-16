@@ -1,10 +1,8 @@
-// File Name:   / Mitchell-Yang_HW15.cpp /
+// File Name:   / 0_TestCode_______Math_Operations_Limited.cpp /
 // Program Name: [Math Tutor]
-// Purpose: ~~~~
+// Purpose: Example file to see how a c++ program works on another computer 
 // Author: [Scarlett Mitchell-Yang]
-// Date Last Modified: D/--/--/21
-// ________ Coding: ~~~~
-// ________ ....... ~~~~
+// Date Last Modified: T/08/06/21
 // ________ Chapter: (5), Loops and Files
 // ________ Textbook: Gaddis, Tony. (2018). Starting Out with C++ from Control Structures to Objects
 // Cr23D0521
@@ -64,12 +62,11 @@ int main()
     // LOOP - Menu repeats +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
     do 
     {   // DISPLAY MENU  << 0 >>
-        cout << endl << "  " << "Math Tutor Menu"
-            << endl << "  " << "------------------------------"
-            << endl << "  " << "1. Addition problem"
-            << endl << "  " << "2. Division problem"
-            << endl << "  " << "3. Quit this program"
-            << endl << "  " << "------------------------------";
+        cout << endl << "  " << "------------------------------"
+             << endl << "  " << "1. Addition problem"
+             << endl << "  " << "2. Division problem"
+             << endl << "  " << "3. Quit this program"
+             << endl << "  " << "------------------------------";
         cout << endl << "  " << "Enter your choice (1-3):  "; 
         cin >> fetchMenuSelection;
         cin.get();
